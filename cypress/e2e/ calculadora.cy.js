@@ -75,4 +75,13 @@ describe('Pruebas E2E de la Calculadora', () => {
     cy.contains('button', 'AC').click();
     cy.get('#current-operand').should('have.text', '0');
   });
+
+  // Prueba nueva: 5 × 5 = 25
+it('Multiplica 5 × 5 y muestra 25', () => {
+  cy.contains('button', '5').click();
+  cy.contains('button', '×').click();
+  cy.contains('button', '5').click();
+  cy.contains('button', '=').click();
+  cy.get('#current-operand').should('have.text', '25');
+});
 });
